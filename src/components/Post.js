@@ -7,7 +7,7 @@ export default function Post(){
     const [postData, setPostData] = useState(null);
 
     useEffect (()=>{
-        sanityClient.fetch('*[_type == "post"]{title, slug, mainImage{asset->{_id, url}, alt}}')
+        sanityClient.fetch(`*[_type == "post"]{title, slug, mainImage{asset->{_id, url}, alt}}`)
         .then((data) => setPostData(data))
         .catch(console.error);
     }, []);

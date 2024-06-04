@@ -6,7 +6,7 @@ export default function Project(){
     const [projectData, setProjectData] = useState(null);
 
     useEffect(() => {
-        sanityClient.fetch('*[_type == "project"]{title, date, place, description, projectType, link, tags}')
+        sanityClient.fetch(`*[_type == "project"]{title, date, place, description, projectType, link, tags}`)
         .then((data) => setProjectData(data))
         .catch(console.error)
     }, []);
