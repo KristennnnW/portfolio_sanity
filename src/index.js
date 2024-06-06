@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { token } from './lib/sanity'; 
+import { token } from './lib/sanity.ts'; 
 
-const PreviewProvider = lazy(() => import('./lib/PreviewProvider')); 
+const PreviewProvider = lazy(() => import('./lib/PreviewProvider.tsx')); 
 
-const previewDrafts = process.env.REACT_APP_SANITY_API_PREVIEW_DRAFTS === 'true';
+const previewDrafts = process.env.SANITY_API_PREVIEW_DRAFTS === 'true';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

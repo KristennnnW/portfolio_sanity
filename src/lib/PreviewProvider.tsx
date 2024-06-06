@@ -1,7 +1,7 @@
 //followed instructions on https://github.com/sanity-io/preview-kit/tree/v4?tab=readme-ov-file#sanitypreview-kit
 import React from 'react';
 import { LiveQueryProvider } from '@sanity/preview-kit';
-import { client } from './sanity';
+import { client } from './sanity.ts';
 
 interface PreviewProviderProps {
   children: React.ReactNode;
