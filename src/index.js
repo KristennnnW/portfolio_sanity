@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { token } from './lib/sanity'; 
+
+const PreviewProvider = lazy(() => import('./lib/PreviewProvider')); 
+
+const previewDrafts = process.env.REACT_APP_SANITY_API_PREVIEW_DRAFTS === 'true';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {previewDrafts ? (
+      <Suspense fallback={<div>Loading preview...</div>}>
+        <PreviewProvider token={token}>
+          <App />
+        </PreviewProvider>
+      </Suspense>
+    ) : (
+      <App />
+    )}
   </React.StrictMode>
 );
 
