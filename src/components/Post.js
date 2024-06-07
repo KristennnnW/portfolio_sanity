@@ -9,7 +9,10 @@ export default function Post() {
   useEffect(() => {
     sanityClient
       .fetch(`*[_type == "post"]{title, slug, mainImage{asset->{_id, url}, alt}}`)
-      .then((data) => setInitialData(data))
+      .then((data) => {
+        console.log('Initial data fetched:', data);
+        setInitialData(data);
+      })
       .catch(console.error);
   }, []);
 

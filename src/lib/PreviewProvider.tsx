@@ -9,6 +9,9 @@ interface PreviewProviderProps {
 }
 
 const PreviewProvider: React.FC<PreviewProviderProps> = ({ children, token }) => {
+    console.log('PreviewProvider component rendered');
+  console.log('Token:', token);
+
   if (!token) throw new TypeError('Missing token');
   return (
     <LiveQueryProvider client={client} token={token}>
