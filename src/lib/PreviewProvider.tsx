@@ -14,7 +14,7 @@ const PreviewProvider: React.FC<PreviewProviderProps> = ({ children, token }) =>
 
   if (!token) throw new TypeError('Missing token');
   return (
-    <LiveQueryProvider client={client} token={token}>
+    <LiveQueryProvider client={client} token={token} logger={console}>
       {children}
     </LiveQueryProvider>
   );
