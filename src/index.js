@@ -7,8 +7,12 @@ import { token, sanityFetch } from './lib/sanity.ts';
 
 const PreviewProvider = lazy(() => import('./lib/PreviewProvider.tsx')); 
 
-const previewDrafts = process.env.SANITY_API_PREVIEW_DRAFTS === 'true';
+const previewDrafts = process.env.REACT_APP_SANITY_API_PREVIEW_DRAFTS === 'true';
 console.log('previewDrafts:', previewDrafts);
+console.log('Environment variables:', {
+  SANITY_API_PREVIEW_DRAFTS: process.env.REACT_APP_SANITY_API_PREVIEW_DRAFTS,
+  SANITY_API_READ_TOKEN: process.env.REACT_APP_SANITY_API_READ_TOKEN,
+});
 
 const Root = () => {
   const [isLoaded, setIsLoaded] = useState(false);
